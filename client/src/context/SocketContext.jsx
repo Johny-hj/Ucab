@@ -10,7 +10,8 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (user && token) {
-      const newSocket = io('http://localhost:5000', {
+      const SOCKET_URL = import.meta.env.PROD ? '/' : 'http://localhost:5000';
+      const newSocket = io(SOCKET_URL, {
         auth: { token },
         transports: ['websocket', 'polling'],
       });
