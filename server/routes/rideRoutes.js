@@ -19,7 +19,7 @@ const router = express.Router();
 router.get('/history', protect, getRideHistory);
 
 // @route   POST /api/rides/book
-router.post('/book', protect, authorize('user'), bookRide);
+router.post('/book', protect, authorize('user', 'driver'), bookRide);
 
 // @route   GET /api/rides/:id
 router.get('/:id', protect, getRide);
@@ -37,9 +37,9 @@ router.put('/:id/complete', protect, authorize('driver'), completeRide);
 router.put('/:id/cancel', protect, cancelRide);
 
 // @route   PUT /api/rides/:id/rate
-router.put('/:id/rate', protect, authorize('user'), rateRide);
+router.put('/:id/rate', protect, authorize('user', 'driver'), rateRide);
 
 // @route   PUT /api/rides/:id/pay
-router.put('/:id/pay', protect, authorize('user'), processPayment);
+router.put('/:id/pay', protect, authorize('user', 'driver'), processPayment);
 
 module.exports = router;

@@ -125,23 +125,23 @@ const Register = () => {
           <div>
             <div className="form-group">
               <label className="form-label">Full Name</label>
-              <input className="form-input" placeholder="John Doe" value={formData.name} onChange={(e) => updateField('name', e.target.value)} />
+              <input className="form-input" placeholder="John Doe" value={formData.name} onChange={(e) => updateField('name', e.target.value)} autoComplete="off" />
             </div>
             <div className="form-group">
               <label className="form-label">Email</label>
-              <input type="email" className="form-input" placeholder="john@example.com" value={formData.email} onChange={(e) => updateField('email', e.target.value)} />
+              <input type="email" className="form-input" placeholder="john@example.com" value={formData.email} onChange={(e) => updateField('email', e.target.value)} autoComplete="new-email" />
             </div>
             <div className="form-group">
               <label className="form-label">Password</label>
-              <input type="password" className="form-input" placeholder="Min 6 characters" value={formData.password} onChange={(e) => updateField('password', e.target.value)} />
+              <input type="password" className="form-input" placeholder="Min 6 characters" value={formData.password} onChange={(e) => updateField('password', e.target.value)} autoComplete="new-password" />
             </div>
             <div className="form-group">
               <label className="form-label">Confirm Password</label>
-              <input type="password" className="form-input" placeholder="Re-enter password" value={formData.confirmPassword} onChange={(e) => updateField('confirmPassword', e.target.value)} />
+              <input type="password" className="form-input" placeholder="Re-enter password" value={formData.confirmPassword} onChange={(e) => updateField('confirmPassword', e.target.value)} autoComplete="new-password" />
             </div>
             <div className="form-group">
               <label className="form-label">Phone Number</label>
-              <input type="tel" className="form-input" placeholder="+91 9876543210" value={formData.phone} onChange={(e) => updateField('phone', e.target.value)} />
+              <input type="tel" className="form-input" placeholder="+91 9876543210" value={formData.phone} onChange={(e) => updateField('phone', e.target.value)} autoComplete="off" />
             </div>
             <button className="btn btn-primary btn-lg w-full" onClick={nextStep}>
               Next <FiArrowRight />

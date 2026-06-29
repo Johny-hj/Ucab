@@ -48,26 +48,35 @@ const DriverRideView = () => {
       setOtpVerified(true);
       setRide(prev => ({ ...prev, status: 'in-progress' }));
     } catch (err) {
-      setOtpError('Invalid OTP. Try again.');
-      // simulate success for demo
-      setOtpVerified(true);
-      setRide(prev => ({ ...prev, status: 'in-progress' }));
+      setOtpError(err.response?.data?.error || err.response?.data?.message || 'Invalid OTP. Try again.');
     }
   };
 
   const acceptRide = async () => {
-    try { await driverService.acceptRide(id); } catch (err) {}
-    setRide(prev => ({ ...prev, status: 'accepted' }));
+    try { 
+      await driverService.acceptRide(id); 
+      setRide(prev => ({ ...prev, status: 'accepted' }));
+    } catch (err) {
+      alert(err.response?.data?.error || 'Failed to accept ride');
+    }
   };
 
   const startRide = async () => {
-    try { await driverService.startRide(id); } catch (err) {}
-    setRide(prev => ({ ...prev, status: 'in-progress' }));
+    try { 
+      await driverService.startRide(id); 
+      setRide(prev => ({ ...prev, status: 'in-progress' }));
+    } catch (err) {
+      alert(err.response?.data?.error || 'Failed to start ride');
+    }
   };
 
   const completeRide = async () => {
-    try { await driverService.completeRide(id); } catch (err) {}
-    setRide(prev => ({ ...prev, status: 'completed' }));
+    try { 
+      await driverService.completeRide(id); 
+      setRide(prev => ({ ...prev, status: 'completed' }));
+    } catch (err) {
+      alert(err.response?.data?.error || 'Failed to complete ride');
+    }
   };
 
   if (loading) {

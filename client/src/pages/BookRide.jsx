@@ -148,7 +148,7 @@ const BookRide = () => {
       setBookingSuccess(ride);
     } catch (err) {
       console.error('Booking error:', err);
-      alert(err.response?.data?.message || 'Booking failed. Please try again.');
+      alert(err.response?.data?.error || err.response?.data?.message || 'Booking failed. Please try again.');
     } finally {
       setLoading(false);
     }

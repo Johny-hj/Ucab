@@ -13,9 +13,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   const demoCredentials = {
-    user: { email: 'user@ucab.com', password: 'password123' },
-    driver: { email: 'driver@ucab.com', password: 'password123' },
-    admin: { email: 'admin@ucab.com', password: 'password123' },
+    user: { email: 'user@ucab.com', password: 'user123' },
+    driver: { email: 'driver@ucab.com', password: 'driver123' },
+    admin: { email: 'admin@ucab.com', password: 'admin123' },
   };
 
   const handleSubmit = async (e) => {
@@ -82,7 +82,7 @@ const Login = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="form-group">
             <label className="form-label">Email</label>
             <input
@@ -91,6 +91,7 @@ const Login = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="new-email"
             />
           </div>
 
@@ -102,6 +103,7 @@ const Login = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password"
             />
           </div>
 
