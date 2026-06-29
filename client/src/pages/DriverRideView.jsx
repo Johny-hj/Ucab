@@ -144,11 +144,11 @@ const DriverRideView = () => {
               <div style={{ flex: 1 }}>
                 <div style={{ marginBottom: '0.75rem' }}>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>PICKUP</div>
-                  <div style={{ fontWeight: 500 }}>{ride.pickup?.address || 'Pickup Location'}</div>
+                  <div style={{ fontWeight: 500 }}>{ride.pickupLocation?.address || ride.pickup?.address || 'Pickup Location'}</div>
                 </div>
                 <div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>DROPOFF</div>
-                  <div style={{ fontWeight: 500 }}>{ride.dropoff?.address || 'Dropoff Location'}</div>
+                  <div style={{ fontWeight: 500 }}>{ride.dropoffLocation?.address || ride.dropoff?.address || 'Dropoff Location'}</div>
                 </div>
               </div>
             </div>
